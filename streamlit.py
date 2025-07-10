@@ -40,7 +40,7 @@ Many studies have shown that scoring functions are important in drug discovery. 
 
 In this small project, we want to show how ML can help reduce the time and effort needed in virtual screening. While protein-ligand interactions and binding poses are very important in drug discovery, our goal here is to help participants learn how ML can be useful.
 
-We have docking scores from XP (extra precision) docking for ~1,000 compounds. Running this docking took more than a day. Your job is to use this data to build a model that can predict the docking scores of 250 new compounds. These 286 compounds were also docked using XP mode, and that process took about half a day.
+We have docking scores from XP (extra precision) docking for ~1,000 compounds. Running this docking took more than a day. Your job is to use this data to build a model that can predict the docking scores of 286 new compounds. These 286 compounds were also docked using XP mode, and that process took about half a day.
 
 This test set contains a mix of known active and inactive compounds for a VEGFR target. Your goal is:
 
