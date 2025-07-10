@@ -3,6 +3,10 @@ import pandas as pd
 import sqlite3
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import matplotlib.pyplot as plt
+import numpy as np
+
+
+
 
 # --- DATABASE SETUP ---
 conn = sqlite3.connect("leaderboard.db", check_same_thread=False)
@@ -83,7 +87,8 @@ This project is a simple way to show how ML can help reduce the time and cost of
                     y_pred = submission[target_col]
 
                     mae = mean_absolute_error(y_true, y_pred)
-                    rmse = mean_squared_error(y_true, y_pred, squared=False)
+                    mse = mean_squared_error(y_true, y_pred)
+                    rmse = rmse = np.sqrt(mse)
                     r2 = r2_score(y_true, y_pred)
 
                     # Enrichment Factor @ 10%
