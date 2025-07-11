@@ -61,6 +61,32 @@ This project is a simple way to show how ML can help reduce the time and cost of
 - You can watch this Drug Hunter Episode [Practical Applications of Physics-based Modeling for Medicinal Chemists](https://www.youtube.com/watch?v=7xXIMfgn3h8&t=2761s) and follow the Drug Hunter Channel on YouTube
 """)
 
+    st.subheader("📂 Download Datasets")
+
+    # Load datasets
+    training_test_data = pd.read_csv("ML_challenge_training_dataset.csv")  # Example training data
+    external_data_to_predict = pd.read_csv("ML_challenge_external_dataset.csv")      # Your actual test data
+
+    # Convert to CSV
+    train_csv = training_test_data.to_csv(index=False).encode("utf-8")
+    test_csv = external_data_to_predict.to_csv(index=False).encode("utf-8")
+
+    # Download buttons
+    st.download_button(
+        label="📥 Download Training Dataset",
+        data=train_csv,
+        file_name="ML_challenge_training_dataset.csv",
+        mime="text/csv"
+    )
+
+    st.download_button(
+        label="📥 Download External Dataset to predict",
+        data=test_csv,
+        file_name="ML_challenge_external_dataset.csv",
+        mime="text/csv"
+    )
+
+
     with st.form("upload_form"):
         email = st.text_input("📧 Enter your email")
         target_col = st.text_input("🎯 Column name for predicted docking scores (e.g., 'docking score')")
