@@ -132,11 +132,11 @@ This project is a simple way to show how ML can help reduce the time and cost of
                     ef10 = n_actives_top / expected_random if expected_random > 0 else 0
 
                     # --- STORE/UPDATE DB ---
-                    cursor.execute("SELECT mae FROM leaderboard WHERE email = ?", (email,))
+                    cursor.execute("SELECT ef10 FROM leaderboard WHERE email = ?", (email,))
                     existing = cursor.fetchone()
 
-                    if existing and mae >= existing[0]:
-                        st.warning(f"⚠️ Your MAE ({mae:.4f}) is not better than your previous score ({existing[0]:.4f}). Not updated.")
+                    if existing and ef10 >= existing[0]:
+                        st.warning(f"Your EF10 ({ef10:.2f}) is not better than your previous score ({existing[0]:.2f}). Not updated.")
                     else:
                         if existing:
                             cursor.execute("""
